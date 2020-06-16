@@ -1,0 +1,19 @@
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/18/20 1:12 PM
+  ~  */
+  -->
+
+<resources>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password</string>
+</resources>

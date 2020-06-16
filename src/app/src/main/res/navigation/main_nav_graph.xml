@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/25/20 10:57 AM
+  ~  */
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav_graph.xml"
+    app:startDestination="@id/home_nav_graph">
+    <include app:graph="@navigation/home_nav_graph" />
+</navigation>

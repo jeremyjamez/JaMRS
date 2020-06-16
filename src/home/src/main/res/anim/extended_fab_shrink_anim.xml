@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/30/20 6:17 PM
+  ~  */
+  -->
+
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:propertyName="width"
+        android:startOffset="0"
+        android:duration="200"
+        android:interpolator="@interpolator/mtrl_fast_out_slow_in"/>
+    <objectAnimator
+        android:propertyName="height"
+        android:startOffset="0"
+        android:duration="200"
+        android:interpolator="@interpolator/mtrl_fast_out_slow_in"/>
+</set>

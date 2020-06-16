@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/4/20 8:39 PM
+  ~  */
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="xyz.james.home.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_patientRegistrationFragment"
+            app:destination="@id/patientRegistrationFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/patientRegistrationFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_searchPatientFragment"
+            app:destination="@id/searchPatientFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/searchPatientFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_appointmentFragment"
+            app:destination="@id/appointmentFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/appointmentFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_consultationFragment"
+            app:destination="@id/consultationFragment"
+            app:popUpTo="@id/consultationFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_medicalRecordFragment"
+            app:destination="@id/medicalRecordFragment"
+            app:popUpTo="@id/medicalRecordFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/patientRegistrationFragment"
+        android:name="xyz.james.home.dashboard.registration.PatientRegistrationFragment"
+        android:label="Patient Registration"
+        tools:layout="@layout/fragment_patient_registration" >
+        <action
+            android:id="@+id/action_patientRegistrationFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchPatientFragment"
+        android:name="xyz.james.home.dashboard.search.SearchPatientFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search_patient" >
+        <action
+            android:id="@+id/action_searchPatientFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentFragment"
+        android:name="xyz.james.home.dashboard.appointment.AppointmentFragment"
+        android:label="Appointments"
+        tools:layout="@layout/fragment_appointment">
+        <action
+            android:id="@+id/action_appointmentFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultationFragment"
+        android:name="xyz.james.home.dashboard.consultation.ConsultationFragment"
+        android:label="Consultation"
+        tools:layout="@layout/fragment_consultation">
+        <action
+            android:id="@+id/action_consultationFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_consultationFragment_to_chatFragment"
+            app:destination="@id/chatFragment"
+            app:popUpTo="@id/chatFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="xyz.james.home.dashboard.consultation.ChatFragment"
+        tools:layout="@layout/fragment_chat">
+        <action
+            android:id="@+id/action_chatFragment_to_consultationFragment"
+            app:destination="@id/consultationFragment"
+            app:popUpTo="@id/consultationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicalRecordFragment"
+        android:name="xyz.james.home.dashboard.record.MedicalRecordFragment"
+        android:label="Record"
+        tools:layout="@layout/fragment_medical_record">
+        <action
+            android:id="@+id/action_medicalRecordFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

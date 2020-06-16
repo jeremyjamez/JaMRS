@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/24/20 3:09 PM
+  ~  */
+  -->
+
+<resources>
+    <declare-styleable name="ExpandableLayout">
+        <attr name="title" format="string"/>
+        <attr name="isExpanded" format="boolean"/>
+        <attr name="expandableContent" format="reference"/>
+    </declare-styleable>
+</resources>

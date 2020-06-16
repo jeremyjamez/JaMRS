@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/11/20 11:26 AM
+  ~  */
+  -->
+
+<resources>
+    <color name="light_blue">#E0F7FA</color>
+    <color name="light_purple">#EDE7F6</color>
+    <color name="light_pink">#FCE4EC</color>
+    <color name="light_green">#E8F5E9</color>
+    <color name="light_yellow">#FBF9DC</color>
+    <color name="light_grey">#F1F1F1</color>
+</resources>

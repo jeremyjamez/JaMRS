@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/27/20 10:36 AM
+  ~  */
+  -->
+
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable type="xyz.james.home.viewmodels.PatientViewModel" name="vm"/>
+    </data>
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".dashboard.registration.PatientRegistrationFragment">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <!-- Personal Info -->
+            <xyz.james.home.ExpandableLayout
+                android:id="@+id/info_expand_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:title="Personal Info"
+                app:isExpanded="true">
+
+                <include layout="@layout/layout_personal_info"
+                    bind:patientViewModel="@{vm}"/>
+
+            </xyz.james.home.ExpandableLayout>
+            <!-- Personal Info End -->
+
+            <!-- Address -->
+            <xyz.james.home.ExpandableLayout
+                android:id="@+id/address_expand_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                app:title="Address"
+                app:isExpanded="false">
+
+                <include layout="@layout/layout_address_info"
+                    bind:patientViewModel="@{vm}"/>
+
+            </xyz.james.home.ExpandableLayout>
+            <!-- Address End -->
+
+            <!-- Medical conditions -->
+            <xyz.james.home.ExpandableLayout
+                android:id="@+id/conditions_expand_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                app:title="Medical Conditions"
+                app:isExpanded="false">
+
+                <include layout="@layout/layout_medical_conditions"
+                    bind:patientViewModel="@{vm}"/>
+
+            </xyz.james.home.ExpandableLayout>
+            <!-- Medical conditions End -->
+
+            <!-- Family History -->
+            <xyz.james.home.ExpandableLayout
+                android:id="@+id/family_expand_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                app:title="Family Medical History"
+                app:isExpanded="false">
+
+                <include layout="@layout/layout_family_medical_history"
+                    bind:patientViewModel="@{vm}"/>
+
+            </xyz.james.home.ExpandableLayout>
+            <!-- Family History End -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fab_add_patient"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="16dp"
+                app:icon="@drawable/ic_user_plus"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                android:onClick="@{() -> vm.addPatientClick()}"
+                android:text="@string/add_patient"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:backgroundTint="@color/secondaryColor" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

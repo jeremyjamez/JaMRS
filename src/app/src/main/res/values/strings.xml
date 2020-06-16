@@ -1,0 +1,14 @@
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/21/20 3:06 PM
+  ~  */
+  -->
+
+<resources>
+    <string name="app_name">JaMRS</string>
+    <string name="home">Home</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="reports">Reports</string>
+</resources>

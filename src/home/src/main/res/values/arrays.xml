@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/3/20 5:08 PM
+  ~  */
+  -->
+
+<resources>
+    <array name="dashboard_colours">
+        <item>@color/light_blue</item>
+        <item>@color/light_purple</item>
+        <item>@color/light_pink</item>
+        <item>@color/light_green</item>
+        <item>@color/light_yellow</item>
+    </array>
+</resources>

@@ -1,0 +1,26 @@
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/18/20 2:18 PM
+  ~  */
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="28dp"
+    android:viewportWidth="100"
+    android:viewportHeight="125">
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M43.21,15.43L19.43,15.43a4,4 0,0 0,-4 4L15.43,43.21a4,4 0,0 0,4 4L43.21,47.21a4,4 0,0 0,4 -4L47.21,19.43A4,4 0,0 0,43.21 15.43ZM39.21,39.2L23.43,39.2L23.43,23.43L39.21,23.43Z"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M56.79,47.21L80.57,47.21a4,4 0,0 0,4 -4L84.57,19.43a4,4 0,0 0,-4 -4L56.79,15.43a4,4 0,0 0,-4 4L52.79,43.21A4,4 0,0 0,56.79 47.21ZM60.79,23.44L76.57,23.44L76.57,39.21L60.79,39.21Z"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M56.79,84.57L80.57,84.57a4,4 0,0 0,4 -4L84.57,56.79a4,4 0,0 0,-4 -4L56.79,52.79a4,4 0,0 0,-4 4L52.79,80.57A4,4 0,0 0,56.79 84.57ZM60.79,60.8L76.57,60.8L76.57,76.57L60.79,76.57Z"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M43.21,52.79L19.43,52.79a4,4 0,0 0,-4 4L15.43,80.57a4,4 0,0 0,4 4L43.21,84.57a4,4 0,0 0,4 -4L47.21,56.79A4,4 0,0 0,43.21 52.79ZM39.21,76.56L23.43,76.56L23.43,60.79L39.21,60.79Z"/>
+</vector>

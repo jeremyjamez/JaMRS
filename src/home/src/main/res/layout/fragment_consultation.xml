@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/4/20 12:05 PM
+  ~  */
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".dashboard.consultation.ConsultationFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/consultation_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_chat_item"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_new_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:backgroundTint="@color/secondaryColor"
+        app:icon="@drawable/ic_add_black_24dp"
+        app:shrinkMotionSpec="@anim/extended_fab_shrink_anim"
+        android:text="@string/new_chat"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

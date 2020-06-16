@@ -1,0 +1,14 @@
+/*
+ * *
+ *  * Created by Jeremy James on 6/16/20 10:35 AM
+ *  * Copyright (c) 2020 . All rights reserved.
+ *  * Last modified 5/22/20 12:01 PM
+ *
+ */
+
+rootProject.name='JaMRS'
+include ':app'
+include ':shared'
+include ':auth'
+include ':home'
+include ':db'

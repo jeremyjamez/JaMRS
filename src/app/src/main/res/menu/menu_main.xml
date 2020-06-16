@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/16/20 10:31 AM
+  ~  */
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@id/dashboardFragment"
+            android:title="@string/dashboard"
+            android:icon="@drawable/ic_grid"/>
+
+        <item android:id="@+id/reportsFragment"
+            android:title="@string/reports"
+            android:icon="@drawable/ic_file"/>
+    </group>
+
+</menu>

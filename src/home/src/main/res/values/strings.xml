@@ -1,0 +1,50 @@
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/16/20 10:35 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/11/20 9:05 PM
+  ~  */
+  -->
+
+<resources>
+    <string name="appointment">Appointment</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="gender">Patient\'s Gender</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="search">Search</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="add_patient">Add Patient</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="address_line_2">Address Line 2</string>
+    <string name="parish">Parish</string>
+    <string name="hypertension">Hypertension</string>
+    <string name="other">Other</string>
+    <string name="heart_disease">Heart Disease</string>
+
+    <string name="register_patient_caption">Add new patients.</string>
+    <string name="search_patient_caption">Find patient medical records.</string>
+    <string name="appoint_patient_caption">View and manage your appointments.</string>
+    <string name="record_patient_caption">Record patient medical information such as BPM, blood pressure, etc.</string>
+    <string name="consult_patient_caption">Communicate with patients.</string>
+    <string name="filter">Filter</string>
+    <string name="schedule">Schedule</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_chat">New Chat</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="done">Done</string>
+    <string name="enter_patient_id">Enter Patient ID</string>
+    <string name="bpm">BPM</string>
+    <string name="pressure_mmhg">Pressure (mmHg)</string>
+    <string name="weight_kg">Weight (kg)</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="get_started_by_clicking_the_schedule_button_below">Get started by clicking the Schedule button below.</string>
+    <string name="no_appointments_have_been_scheduled_for_this_day">No appointments have been scheduled for this day.</string>
+    <string name="save">Save</string>
+    <string name="note">Note</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+</resources>
