@@ -19,21 +19,16 @@ class PatientRepositoryImpl(val patientDao: PatientDao) : PatientRepository {
         return patientDao.insert(patient)
     }
 
-    override fun findPatientById(id: String): DataSource.Factory<Int, Patient> {
+    override fun findPatientsById(id: String): DataSource.Factory<Int, Patient> {
+        return patientDao.findPatientsById(id)
+    }
+
+    override suspend fun findPatientById(id: String): Patient {
         return patientDao.findPatientById(id)
     }
 
     override fun getAllPatients(): DataSource.Factory<Int, Patient> {
         return patientDao.getAllPatients()
-    }
-
-    override fun findPatientByMultipleFilters(
-        firstName: String,
-        middleName: String,
-        lastName: String,
-        gender: String
-    ): DataSource.Factory<Int, Patient> {
-        return patientDao.findPatientByMultipleFilters(firstName, middleName, lastName, gender)
     }
 
     override suspend fun findLastPatient(): String {

@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun setUpNavigation(){
         setSupportActionBar(toolbar)
+
         navController = Navigation.findNavController(this, R.id.main_nav_host_fragment)
         val appBarConfig = AppBarConfiguration(navController!!.graph, drawerLayout)
         toolbar.setupWithNavController(navController!!, appBarConfig)

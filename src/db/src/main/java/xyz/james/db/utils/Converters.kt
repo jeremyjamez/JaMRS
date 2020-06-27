@@ -11,6 +11,9 @@ package xyz.james.db.utils
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalTime
+import org.threeten.bp.format.DateTimeFormatter
 import java.lang.reflect.Type
 import java.util.*
 
@@ -28,6 +31,26 @@ class Converters {
         val gson = Gson()
         val json = gson.toJson(list)
         return json
+    }
+
+    @TypeConverter
+    fun fromLocalDate(value: String?): LocalDate? {
+        return value?.let { LocalDate.parse(it, DateTimeFormatter.ofPattern("dd/MM/yyyy")) }
+    }
+
+    @TypeConverter
+    fun localDateToString(date: LocalDate?): String? {
+        return date?.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+    }
+
+    @TypeConverter
+    fun fromLocalTime(value: String?) : LocalTime? {
+        return value?.let { LocalTime.parse(it, DateTimeFormatter.ofPattern("hh:mm a")) }
+    }
+
+    @TypeConverter
+    fun localTimeToString(time: LocalTime?): String? {
+        return time?.format(DateTimeFormatter.ofPattern("hh:mm a"))
     }
 
     @TypeConverter

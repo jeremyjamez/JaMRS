@@ -18,7 +18,11 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.paging.PagedList
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textview.MaterialTextView
 import com.michalsvec.singlerowcalendar.calendar.CalendarChangesObserver
 import com.michalsvec.singlerowcalendar.calendar.CalendarViewManager
 import com.michalsvec.singlerowcalendar.calendar.SingleRowCalendarAdapter
@@ -26,7 +30,13 @@ import com.michalsvec.singlerowcalendar.selection.CalendarSelectionManager
 import com.michalsvec.singlerowcalendar.utils.DateUtils
 import kotlinx.android.synthetic.main.calendar_item.view.*
 import kotlinx.android.synthetic.main.fragment_appointment.*
+import kotlinx.coroutines.runBlocking
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.threeten.bp.LocalDate
+import org.threeten.bp.format.DateTimeFormatter
+import xyz.james.db.entities.Appointment
+import xyz.james.db.repositories.PatientRepository
 import xyz.james.home.R
 import xyz.james.home.databinding.FragmentAppointmentBinding
 import xyz.james.home.viewmodels.AppointmentViewModel
@@ -39,8 +49,10 @@ class AppointmentFragment : Fragment() {
 
     private val calendar = Calendar.getInstance()
     private var currentMonth = 0
+    private lateinit var appointmentPagedList : PagedList<Appointment>
 
     val appointmentViewModel : AppointmentViewModel by viewModel()
+    val patientRepository : PatientRepository by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,6 +98,18 @@ class AppointmentFragment : Fragment() {
                 Snackbar.make(requireView(), "Failed to add appointment!", Snackbar.LENGTH_LONG).show()
         })
 
+        appointmentViewModel.findAllAppointments().observe(viewLifecycleOwner, Observer { appointmentList ->
+            if (appointmentList != null && appointmentList.size > 0){
+                val adapter = AppointmentAdapter(appointmentList, patientRepository)
+                appointmentRecyclerView.adapter = adapter
+                emptyAppointmentLayoutState.visibility = View.GONE
+                appointmentRecyclerView.visibility = View.VISIBLE
+            } else {
+                emptyAppointmentLayoutState.visibility = View.VISIBLE
+                appointmentRecyclerView.visibility = View.GONE
+            }
+        })
+
         calendar.time = Date()
         currentMonth = calendar[Calendar.MONTH]
 
@@ -95,14 +119,15 @@ class AppointmentFragment : Fragment() {
                 date: Date,
                 isSelected: Boolean
             ): Int {
+
                 // set date to calendar according to position where we are
                 //val cal = Calendar.getInstance()
                 //cal.time = date
                 // if item is selected we return this layout items
+                val localDate = LocalDate.parse("${DateUtils.getDayNumber(date)}/${DateUtils.getMonthNumber(date)}/${DateUtils.getYear(date)}", DateTimeFormatter.ofPattern("d/M/yyyy"))
                 return if (isSelected)
                     R.layout.selected_calendar_item
                 else
-                // here we return items which are not selected
                     R.layout.calendar_item
             }
 
@@ -122,8 +147,8 @@ class AppointmentFragment : Fragment() {
             CalendarChangesObserver {
             // you can override more methods, in this example we need only this one
             override fun whenSelectionChanged(isSelected: Boolean, position: Int, date: Date) {
-                txtDate.text = "${DateUtils.getMonthName(date)} ${DateUtils.getDayNumber(date)}, ${DateUtils.getDayName(date)}"
                 super.whenSelectionChanged(isSelected, position, date)
+                txtDate.text = "${DateUtils.getMonthName(date)} ${DateUtils.getDayNumber(date)}, ${DateUtils.getDay3LettersName(date)}, ${DateUtils.getYear(date)}"
             }
         }
 
@@ -218,4 +243,34 @@ class AppointmentFragment : Fragment() {
         return list
     }
 
+    private class AppointmentAdapter(val appointmentList: PagedList<Appointment>, val patientRepository: PatientRepository) : RecyclerView.Adapter<AppointmentViewHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentViewHolder {
+            return AppointmentViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.appointment_item, parent, false))
+        }
+
+        override fun getItemCount(): Int {
+            return appointmentList.size
+        }
+
+        override fun onBindViewHolder(holder: AppointmentViewHolder, position: Int) {
+            val appointment = appointmentList[position]
+            runBlocking {
+                val patient = patientRepository.findPatientById(appointment?.patientId!!)
+                holder.txtPatientName.text = patient.patientFullNameWithMiddleInitial() ?: ""
+            }
+
+            holder.txtPatientId.text = appointment?.patientId
+            holder.txtDoctorsNote.text = appointment?.appointmentNote
+            holder.btnAppointmentDate.text = appointment?.appointmentDate.toString()
+            holder.btnAppointmentTime.text = appointment?.appointmentTime?.format(DateTimeFormatter.ofPattern("hh:mm a"))
+        }
+    }
+
+    private class AppointmentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val txtPatientName = itemView.findViewById<MaterialTextView>(R.id.txtPatientName)
+        val txtPatientId = itemView.findViewById<MaterialTextView>(R.id.txtPatientId)
+        val txtDoctorsNote = itemView.findViewById<MaterialTextView>(R.id.txtDoctorsNote)
+        val btnAppointmentDate = itemView.findViewById<MaterialButton>(R.id.btnAppointmentDate)
+        val btnAppointmentTime = itemView.findViewById<MaterialButton>(R.id.btnAppointmentTime)
+    }
 }

@@ -13,6 +13,8 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalTime
 import org.threeten.bp.Year
 import org.threeten.bp.format.DateTimeFormatter
 
@@ -27,8 +29,8 @@ import org.threeten.bp.format.DateTimeFormatter
 )
 data class Appointment (
     val patientId: String,
-    val appointmentDate: String,
-    val appointmentTime: String,
+    val appointmentDate: LocalDate,
+    val appointmentTime: LocalTime,
     val appointmentNote: String
 ) {
     @PrimaryKey @NonNull
@@ -47,12 +49,18 @@ data class Appointment (
     @Ignore
     private val STRING_LENGTH = 5;
 
-    private fun generateAppointmentId(){
+    fun generateAppointmentId(){
         val year = Year.now()
         val randomString = (1..STRING_LENGTH)
             .map { i -> kotlin.random.Random.nextInt(0, charPool.size) }
             .map(charPool::get)
             .joinToString("");
-        appointmentId = "${year.format(DateTimeFormatter.ofPattern("ty"))}$randomString"
+        appointmentId = "${year.format(DateTimeFormatter.ofPattern("y"))}$randomString"
     }
+
+    override fun toString(): String {
+        return "Appointment(patientId='$patientId', appointmentDate='$appointmentDate', appointmentTime='$appointmentTime', appointmentNote='$appointmentNote', appointmentId='$appointmentId')"
+    }
+
+
 }

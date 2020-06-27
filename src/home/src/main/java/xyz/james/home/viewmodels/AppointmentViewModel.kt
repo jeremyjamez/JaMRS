@@ -18,6 +18,9 @@ import androidx.paging.PagedList
 import androidx.paging.toLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.threeten.bp.LocalDate
+import org.threeten.bp.LocalTime
+import org.threeten.bp.format.DateTimeFormatter
 import xyz.james.db.entities.Appointment
 import xyz.james.db.entities.Patient
 import xyz.james.db.repositories.AppointmentRepository
@@ -44,7 +47,7 @@ class AppointmentViewModel(val patientRepository: PatientRepository, val appoint
     }
 
     fun findPatientById(id: String) : LiveData<PagedList<Patient>> {
-        val patientDataSource : DataSource.Factory<Int, Patient> = patientRepository.findPatientById(id)
+        val patientDataSource : DataSource.Factory<Int, Patient> = patientRepository.findPatientsById(id)
         return patientDataSource.toLiveData(myPagingConfig)
     }
 
@@ -52,12 +55,28 @@ class AppointmentViewModel(val patientRepository: PatientRepository, val appoint
         if (appointmentDate.value.isNullOrBlank() && appointmentTime.value.isNullOrBlank() && appointmentPatientId.value.isNullOrBlank() && appointmentNote.value.isNullOrBlank()){
 
         } else {
-            val appointment = Appointment(appointmentPatientId.value!!, appointmentDate.value!!, appointmentTime.value!!, appointmentNote.value!!)
-            appointment.getAppointmentId()
+            val dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            val appointmentDate = LocalDate.parse(appointmentDate.value!!, dateFormatter)
+
+            val timeFormatter = DateTimeFormatter.ofPattern("h:mm a")
+            val appointmentTime = LocalTime.parse(appointmentTime.value!!, timeFormatter)
+
+            val appointment = Appointment(appointmentPatientId.value!!, appointmentDate, appointmentTime, appointmentNote.value!!)
+            appointment.generateAppointmentId()
             viewModelScope.launch(Dispatchers.IO) {
                 val row = appointmentRepository.insert(appointment)
                 isAppointmentCreated.postValue(row > 0)
             }
         }
+    }
+
+    fun findAppointmentsByDate(date: LocalDate) : LiveData<PagedList<Appointment>> {
+        val appointmentDataSource : DataSource.Factory<Int, Appointment> = appointmentRepository.findAppointmentsByDate(date)
+        return appointmentDataSource.toLiveData(myPagingConfig)
+    }
+
+    fun findAllAppointments() : LiveData<PagedList<Appointment>> {
+        val appointmentDataSource : DataSource.Factory<Int, Appointment> = appointmentRepository.findAllAppointments()
+        return appointmentDataSource.toLiveData(myPagingConfig)
     }
 }

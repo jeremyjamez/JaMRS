@@ -13,8 +13,8 @@ import xyz.james.db.entities.Patient
 
 interface PatientRepository {
     fun getAllPatients() : DataSource.Factory<Int, Patient>
-    fun findPatientById(id: String) : DataSource.Factory<Int, Patient>
-    fun findPatientByMultipleFilters(firstName: String, middleName: String, lastName: String, gender: String) : DataSource.Factory<Int, Patient>
+    fun findPatientsById(id: String) : DataSource.Factory<Int, Patient>
+    suspend fun findPatientById(id: String) : Patient
     suspend fun findLastPatient() : String
     suspend fun insert(patient: Patient): Long
 }

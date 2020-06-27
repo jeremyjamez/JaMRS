@@ -45,6 +45,6 @@
     <string name="no_appointments_have_been_scheduled_for_this_day">No appointments have been scheduled for this day.</string>
     <string name="save">Save</string>
     <string name="note">Note</string>
-    <string name="date">Date</string>
-    <string name="time">Time</string>
+    <string name="date">12/06/2020</string>
+    <string name="time">12:00 pm</string>
 </resources>

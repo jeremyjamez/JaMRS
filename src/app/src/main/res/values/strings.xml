@@ -11,4 +11,6 @@
     <string name="home">Home</string>
     <string name="dashboard">Dashboard</string>
     <string name="reports">Reports</string>
+    <string name="drawer_close">Close</string>
+    <string name="drawer_open">Open</string>
 </resources>

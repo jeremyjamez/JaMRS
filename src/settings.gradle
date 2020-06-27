@@ -5,6 +5,7 @@
  *  * Last modified 5/22/20 12:01 PM
  *
  */
+include ':appointmentcalendar'
 
 rootProject.name='JaMRS'
 include ':app'

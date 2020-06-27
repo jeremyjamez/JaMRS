@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JaMRS.iml" filepath="$PROJECT_DIR$/JaMRS.iml" group="JaMRS" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="JaMRS/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/appointmentcalendar/appointmentcalendar.iml" filepath="$PROJECT_DIR$/.idea/modules/appointmentcalendar/appointmentcalendar.iml" group="JaMRS/appointmentcalendar" />
       <module fileurl="file://$PROJECT_DIR$/auth/auth.iml" filepath="$PROJECT_DIR$/auth/auth.iml" group="JaMRS/auth" />
       <module fileurl="file://$PROJECT_DIR$/db/db.iml" filepath="$PROJECT_DIR$/db/db.iml" group="JaMRS/db" />
       <module fileurl="file://$PROJECT_DIR$/home/home.iml" filepath="$PROJECT_DIR$/home/home.iml" group="JaMRS/home" />

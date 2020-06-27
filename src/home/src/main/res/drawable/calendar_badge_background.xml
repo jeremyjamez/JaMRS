@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/21/20 4:35 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/21/20 4:35 PM
+  ~  */
+  -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <solid android:color="@color/secondaryColor"/>
+</shape>

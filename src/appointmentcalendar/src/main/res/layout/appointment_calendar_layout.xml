@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Jeremy James on 6/27/20 12:57 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 6/27/20 12:57 PM
+  ~  */
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+</LinearLayout>

@@ -108,11 +108,11 @@ class PatientViewModel(val patientRepository: PatientRepository) : ViewModel() {
     }
 
     fun findPatientById(id: String) : LiveData<PagedList<Patient>> {
-        val patientDataSource : DataSource.Factory<Int, Patient> = patientRepository.findPatientById(id)
+        val patientDataSource : DataSource.Factory<Int, Patient> = patientRepository.findPatientsById(id)
         return patientDataSource.toLiveData(myPagingConfig)
     }
 
-    fun getAllPatients() : LiveData<PagedList<Patient>> {
+    /*fun getAllPatients() : LiveData<PagedList<Patient>> {
         val patientDataSource : DataSource.Factory<Int, Patient> = patientRepository.getAllPatients()
         return patientDataSource.toLiveData(myPagingConfig)
     }
@@ -120,7 +120,7 @@ class PatientViewModel(val patientRepository: PatientRepository) : ViewModel() {
     fun findPatientByFilters(firstName: String, middleName: String, lastName: String, gender: String) : LiveData<PagedList<Patient>>{
         val patientDataSource : DataSource.Factory<Int, Patient> = patientRepository.findPatientByMultipleFilters(firstName, middleName, lastName, gender)
         return patientDataSource.toLiveData(20)
-    }
+    }*/
 
     suspend fun findLastPatient() : String {
         return patientRepository.findLastPatient()

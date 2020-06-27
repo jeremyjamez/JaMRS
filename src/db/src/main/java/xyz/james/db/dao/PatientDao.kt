@@ -19,7 +19,10 @@ import xyz.james.db.entities.Patient
 interface PatientDao {
 
     @Query("select * from patient where patientId LIKE '%' || :id ||'%'")
-    fun findPatientById(id: String) : DataSource.Factory<Int, Patient>
+    fun findPatientsById(id: String) : DataSource.Factory<Int, Patient>
+
+    @Query("select * from patient where patientId like :id")
+    suspend fun findPatientById(id: String) : Patient
 
     @Query("select * from patient where firstName like :firstName or middleName like :middleName or lastName like :lastName or gender like :gender")
     fun findPatientByMultipleFilters(firstName: String, middleName: String, lastName: String, gender: String) : DataSource.Factory<Int, Patient>

@@ -8,6 +8,8 @@
 
 package xyz.james.db.repositories.impl
 
+import androidx.paging.DataSource
+import org.threeten.bp.LocalDate
 import xyz.james.db.dao.AppointmentDao
 import xyz.james.db.entities.Appointment
 import xyz.james.db.repositories.AppointmentRepository
@@ -16,5 +18,13 @@ class AppointmentRepositoryImpl(val appointmentDao: AppointmentDao) : Appointmen
 
     override suspend fun insert(appointment: Appointment): Long {
         return appointmentDao.insert(appointment)
+    }
+
+    override fun findAllAppointments(): DataSource.Factory<Int, Appointment> {
+        return appointmentDao.findAllAppointments()
+    }
+
+    override fun findAppointmentsByDate(date: LocalDate): DataSource.Factory<Int, Appointment> {
+        return appointmentDao.findAppointmentsByDate(date)
     }
 }
